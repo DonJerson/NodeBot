@@ -7,9 +7,13 @@ app.get("/", (req, res) => {
     res.send("Hello World")
 });
 
+
+
 const port = process.env.port || 5005
 
+
 app.listen(port, () => {
+    async function workHard(){
     console.log(`Listening on port ${port}`)
     const browser = await puppeteer.launch({
         headless: true,
@@ -21,4 +25,6 @@ app.listen(port, () => {
         });
         await page.screenshot({path: 'example.png'});
         await browser.close();
+    }workHard()
 })
+

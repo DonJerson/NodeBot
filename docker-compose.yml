@@ -3,11 +3,9 @@ version: '3'
 services:
   puppeteer:
     build: .
+    ports:
+      - "5005:5005"
     volumes:
-    # mount code and output directories into the container
       - ./:/app
       - /app/node_modules
     working_dir: /app
-    shm_size: 1gb #512M
-    # just run the container doing nothing
-    entrypoint: ["node", "index.js"]

@@ -11,7 +11,6 @@ COPY package.json .
 COPY . ./
 
 RUN apt-get update
-
 # for https
 RUN apt-get install -yyq ca-certificates
 # install libraries
@@ -21,4 +20,8 @@ RUN apt-get install -yyq gconf-service lsb-release wget xdg-utils
 # and fonts
 RUN apt-get install -yyq fonts-liberation
 
+RUN apt-get install chromium -yyq
+
 RUN npm install
+
+CMD [ "node","index.js" ]
